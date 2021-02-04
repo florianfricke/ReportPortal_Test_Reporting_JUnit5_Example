@@ -10,5 +10,17 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testCompile("org.junit.jupiter:junit-jupiter-params:5.7.0")
+    testCompile group: 'org.apache.camel', name: 'camel-core', version: '3.7.0'
+    compile group: 'org.apache.camel', name: 'camel-test-junit5', version: '3.7.0'
+}
+
+test {
+    useJUnitPlatform ()
+//    useJUnitPlatform {
+//        includeTags 'simpleJUnit5Test', ''
+//        excludeTags ''
+//    }
 }
